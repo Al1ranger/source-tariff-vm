@@ -1,0 +1,8 @@
+__pycache__/
+.pytest_cache/
+.tooldeps/
+.venv/
+artifacts/
+.env
+*.keystore
+node_modules/
