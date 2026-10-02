@@ -38,6 +38,8 @@ FETCH -> hash mismatch / rejected source / unsupported -> no installed program
 
 ## Real-source demonstration
 
+Live StudioNet contract: [0xfD40c1B9786D1CA432fB2478C3526D15E5a30a95](https://explorer-studio.genlayer.com/address/0xfD40c1B9786D1CA432fB2478C3526D15E5a30a95). [Seven inspected receipts](LIVE_PROOFS.md) cover deployment, semantic compilation, two quotes, two fail-closed compilation decisions and an expected replay rejection.
+
 The demo fetches [GitHub's official source document](https://github.com/github/docs/blob/56fcfa816f27bca239e5d39fff0d4f74f77ec995/content/billing/reference/actions-runner-pricing.md), not a fixture authored by this project. Its selected larger-runner SKUs are `linux_4_core`, `windows_4_core` and `macos_l`. The document's per-job whole-minute rule must compile to `unit_seconds=60`, `rounding=CEIL`, `scope=EACH`. See [GitHub's pricing reference](https://docs.github.com/en/billing/reference/actions-runner-pricing).
 
 Two 61-second jobs consequently have four billed units. Aggregating them first would produce three, so rounding semantics have a measurable onchain effect. [LIVE_PROOFS.md](LIVE_PROOFS.md) contains only inspected receipts and stored-state readbacks.
@@ -61,7 +63,7 @@ Durations are positive integer seconds, at most 32 per quote, each bounded to 30
 python -m pip install -r requirements-dev.txt
 npm install -g genlayer
 genvm-lint check contracts/SourceTariffVM.py
-python -m pytest tests/direct -q
+python -m pytest tests -q
 genlayer network set studionet
 genlayer deploy --contract contracts/SourceTariffVM.py
 ```

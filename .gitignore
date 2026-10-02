@@ -4,5 +4,9 @@ __pycache__/
 .venv/
 artifacts/
 .env
+.env.*
+*.key
+*.pem
+.password
 *.keystore
 node_modules/

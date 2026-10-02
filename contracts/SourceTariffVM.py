@@ -223,7 +223,8 @@ class SourceTariffVM(gl.Contract):
 
     @gl.public.view
     def get_receipt(self, principal: Address, nonce: str) -> str:
-        return self.receipts[canonical([str(Address(principal)), nonce])]
+        normalized = principal if isinstance(principal, Address) else Address(principal)
+        return self.receipts[canonical([str(normalized), nonce])]
 
     @gl.public.view
     def history_count(self) -> int:
