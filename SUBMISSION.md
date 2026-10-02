@@ -1,6 +1,6 @@
-# Builder submission draft
+# Builder submission
 
-Publish the repository before submitting. This file does not claim a completed GitHub push.
+Repository published under Al1ranger. Deployment and seven inspected receipts are documented in LIVE_PROOFS.md.
 
 Contribution type: Builder / Intelligent Contracts.
 
